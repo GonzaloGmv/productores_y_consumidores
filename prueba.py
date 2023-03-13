@@ -4,7 +4,7 @@ import time
 
 q = Queue(10)
 
-def producer():
+def productor():
     count = 1
     while True:
         q.join()
@@ -12,7 +12,7 @@ def producer():
         print(f"El productor está produciendo el {count}")
         count+=1
 
-def customer():
+def consumidor():
     count = 1
     while True:
         q.get()
@@ -23,7 +23,7 @@ def customer():
 
 
 if __name__ == '__main__':
-    t1 = Thread(target=producer)
-    t2 = Thread(target=customer)
+    t1 = Thread(target=productor)
+    t2 = Thread(target=consumidor)
     t1.start()
     t2.start()
